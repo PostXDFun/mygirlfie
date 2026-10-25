@@ -2,123 +2,124 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Pause, SkipForward, SkipBack, Disc, Volume2, VolumeX } from 'lucide-react';
 import BackButton from '../ui/BackButton';
+import { asset } from '../../utils';
 
 const initialSongs = [
   { 
     id: 1, 
     title: 'And I Love Her', 
     artist: 'The Beatles', 
-    coverImg: '/covers/asa_denji.jpg', 
+    coverImg: asset('/covers/asa_denji.jpg'), 
     coverPosition: 'object-[75%_25%] scale-125',
     coverColor: 'from-[#8b0000] to-[#2b0000]',
-    audioSrc: '/audio/And I Love Her (Remastered 2009) 4.mp3' 
+    audioSrc: asset('/audio/And I Love Her (Remastered 2009) 4.mp3') 
   },
   { 
     id: 2, 
     title: 'Memories of You', 
     artist: 'Yumi Kawamura', 
-    coverImg: '/covers/makoto_aigis.jpg',
+    coverImg: asset('/covers/makoto_aigis.jpg'),
     coverPosition: 'object-[center_35%]',
     coverColor: 'from-[#191970] to-[#050520]',
-    audioSrc: '/audio/Memories of You (Remix) - Persona 3 The Movie.mp3' 
+    audioSrc: asset('/audio/Memories of You (Remix) - Persona 3 The Movie.mp3') 
   },
   { 
     id: 3, 
     title: 'Love Buzz', 
     artist: 'Nirvana', 
-    coverImg: '/covers/reze_denji.jpg',
+    coverImg: asset('/covers/reze_denji.jpg'),
     coverPosition: 'object-center',
     coverColor: 'from-[#b8860b] to-[#3a2002]',
-    audioSrc: '/audio/Nirvana - Love Buzz 4.mp3' 
+    audioSrc: asset('/audio/Nirvana - Love Buzz 4.mp3') 
   },
   { 
     id: 4, 
     title: 'Wait and Bleed', 
     artist: 'Slipknot', 
-    coverImg: '/covers/reze_bomb.jpg', 
+    coverImg: asset('/covers/reze_bomb.jpg'), 
     coverPosition: 'object-[center_20%]',
     coverColor: 'from-[#800000] to-[#1a0000]',
-    audioSrc: '/audio/Slipknot - Wait And Bleed (Audio) 4.mp3' 
+    audioSrc: asset('/audio/Slipknot - Wait And Bleed (Audio) 4.mp3') 
   },
   { 
     id: 5, 
     title: 'Forever', 
     artist: 'The Little Dippers', 
-    coverImg: '/covers/josuke_yasuho.jpg',
+    coverImg: asset('/covers/josuke_yasuho.jpg'),
     coverPosition: 'object-[center_25%]',
     coverColor: 'from-[#c71585] to-[#4a0033]',
-    audioSrc: '/audio/The Little Dippers - Forever (Sub. Español) _ _ Lyrics.mp3' 
+    audioSrc: asset('/audio/The Little Dippers - Forever (Sub. Español) _ _ Lyrics.mp3') 
   },
   { 
     id: 6, 
     title: 'The Rumbling', 
     artist: 'SiM', 
-    coverImg: '/covers/mikasa_eren.jpg', 
+    coverImg: asset('/covers/mikasa_eren.jpg'), 
     coverPosition: 'object-[center_40%]',
     coverColor: 'from-[#2f4f4f] to-[#0f1f1f]',
-    audioSrc: '/audio/Attack on Titan The Final Season Part 2 Opening｜The Rumbling - SiM 4.mp3' 
+    audioSrc: asset('/audio/Attack on Titan The Final Season Part 2 Opening｜The Rumbling - SiM 4.mp3') 
   },
   { 
     id: 7, 
     title: 'Roundabout', 
     artist: 'Yes', 
-    coverImg: '/covers/jolyne_jotaro.jpg', 
+    coverImg: asset('/covers/jolyne_jotaro.jpg'), 
     coverPosition: 'object-center',
     coverColor: 'from-[#d2691e] to-[#4a250a]',
-    audioSrc: '/audio/Yes - Roundabout (Original 1971) 4.mp3' 
+    audioSrc: asset('/audio/Yes - Roundabout (Original 1971) 4.mp3') 
   },
   { 
     id: 8, 
     title: 'Vermilion', 
     artist: 'Slipknot', 
-    coverImg: '/covers/springtrap.jpg', 
+    coverImg: asset('/covers/springtrap.jpg'), 
     coverPosition: 'object-[center_30%]',
     coverColor: 'from-[#a00000] to-[#300000]',
-    audioSrc: '/audio/Vermilion 4.mp3' 
+    audioSrc: asset('/audio/Vermilion 4.mp3') 
   },
   { 
     id: 9, 
     title: 'SPIN', 
     artist: 'Kroi', 
-    coverImg: '/covers/gyro.jpg',
+    coverImg: asset('/covers/gyro.jpg'),
     coverPosition: 'object-center',
     coverColor: 'from-[#ff6347] to-[#4a1a10]',
-    audioSrc: '/audio/SPIN.mp3' 
+    audioSrc: asset('/audio/SPIN.mp3') 
   },
   { 
     id: 10, 
     title: 'Holy Steel', 
     artist: 'Nico Bellisario, Shihori', 
-    coverImg: '/covers/steel_ball.jpg', 
+    coverImg: asset('/covers/steel_ball.jpg'), 
     coverColor: 'from-[#4169e1] to-[#0a1a40]',
-    audioSrc: "/audio/JoJo_ ★ STEEL BALL RUN OP ★『Holy Steel』- Original - JoJo's Bizarre Adventure Part 7 【ジョジョの奇妙な冒険】 4.mp3" 
+    audioSrc: asset("/audio/JoJo_ ★ STEEL BALL RUN OP ★『Holy Steel』- Original - JoJo's Bizarre Adventure Part 7 【ジョジョの奇妙な冒険】 4.mp3") 
   },
   { 
     id: 11, 
     title: 'Louise', 
     artist: 'TV Girl', 
-    coverImg: '/covers/reze_pink.jpg',
+    coverImg: asset('/covers/reze_pink.jpg'),
     coverPosition: 'object-[center_35%]',
     coverColor: 'from-[#ff69b4] to-[#4a0028]',
-    audioSrc: '/audio/TV Girl - Louise.mp3' 
+    audioSrc: asset('/audio/TV Girl - Louise.mp3') 
   },
   { 
     id: 12, 
     title: 'Your Affection', 
     artist: 'Shihoko Hirata', 
-    coverImg: '/covers/bruno.jpg', 
+    coverImg: asset('/covers/bruno.jpg'), 
     coverPosition: 'object-[60%_center]',
     coverColor: 'from-[#ffd700] to-[#4a3a00]',
-    audioSrc: '/audio/Your Affection 4.mp3' 
+    audioSrc: asset('/audio/Your Affection 4.mp3') 
   },
   { 
     id: 13, 
     title: 'Sweet', 
     artist: 'Shoji Meguro', 
-    coverImg: '/covers/ren_sumire.jpg', 
+    coverImg: asset('/covers/ren_sumire.jpg'), 
     coverPosition: 'object-[center_30%] scale-125',
     coverColor: 'from-[#dc143c] to-[#3a0510]',
-    audioSrc: '/audio/Persona 5 OST 69 - Sweet.mp3' 
+    audioSrc: asset('/audio/Persona 5 OST 69 - Sweet.mp3') 
   },
 ];
 
@@ -227,11 +228,11 @@ export default function JojoSection({ onBack }) {
       </div>
 
       {/* Doodles Pequeños (Adaptados para móvil) */}
-      <img src="/sprites/doodle_josuke_dog.jpg" alt="Josuke Dog Doodle" className="absolute top-[5%] right-[5%] sm:right-[15%] w-14 sm:w-20 rotate-[-10deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
-      <img src="/sprites/doodle_iggy.jpg" alt="Iggy Doodle" className="absolute top-[16%] left-[6%] sm:left-[18%] w-16 sm:w-20 rotate-[15deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
-      <img src="/sprites/johnny.jpg" alt="Johnny Doodle" className="absolute top-[22%] right-[8%] sm:right-[12%] w-20 sm:w-28 rotate-[-18deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
-      <img src="/sprites/soft_and_wet.jpg" alt="Soft and Wet Doodle" className="absolute top-[45%] left-[2%] sm:left-[10%] w-16 sm:w-24 rotate-[25deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
-      <img src="/sprites/doodle_abbacchio.jpg" alt="Abbacchio Doodle" className="absolute bottom-[5%] left-[5%] sm:left-[15%] w-14 sm:w-20 rotate-[-15deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
+      <img src={asset("/sprites/doodle_josuke_dog.jpg")} alt="Josuke Dog Doodle" className="absolute top-[5%] right-[5%] sm:right-[15%] w-14 sm:w-20 rotate-[-10deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
+      <img src={asset("/sprites/doodle_iggy.jpg")} alt="Iggy Doodle" className="absolute top-[16%] left-[6%] sm:left-[18%] w-16 sm:w-20 rotate-[15deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
+      <img src={asset("/sprites/johnny.jpg")} alt="Johnny Doodle" className="absolute top-[22%] right-[8%] sm:right-[12%] w-20 sm:w-28 rotate-[-18deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
+      <img src={asset("/sprites/soft_and_wet.jpg")} alt="Soft and Wet Doodle" className="absolute top-[45%] left-[2%] sm:left-[10%] w-16 sm:w-24 rotate-[25deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
+      <img src={asset("/sprites/doodle_abbacchio.jpg")} alt="Abbacchio Doodle" className="absolute bottom-[5%] left-[5%] sm:left-[15%] w-14 sm:w-20 rotate-[-15deg] opacity-40 mix-blend-multiply pointer-events-none z-0" />
 
       <BackButton onClick={onBack} />
 

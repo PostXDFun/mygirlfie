@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowLeft } from 'lucide-react';
+import { asset } from '../../utils';
 
 const COLS = 10;
 const ROWS = 5;
@@ -12,7 +13,7 @@ const GRID_W = 0.885;
 const GRID_H = 0.76;
 
 const initialItems = [
-  { id: 1, title: 'Handgun ammo', desc: 'te handgun ammo', img: '/sprites/re_handgun_ammo.png', c: 1, r: 1, w: 2, h: 1 },
+  { id: 1, title: 'Handgun ammo', desc: 'te handgun ammo', img: asset('/sprites/re_handgun_ammo.png'), c: 1, r: 1, w: 2, h: 1 },
   { id: 2, title: 'Foto 2', desc: 'Aquí va la descripción o recuerdo de esta foto.', c: 4, r: 1, w: 5, h: 2 },
   { id: 3, title: 'Foto 3', desc: 'Aquí va la descripción o recuerdo de esta foto.', c: 9, r: 1, w: 2, h: 2 },
   { id: 4, title: 'Foto 4', desc: 'Aquí va la descripción o recuerdo de esta foto.', c: 1, r: 3, w: 1, h: 1 },
@@ -223,7 +224,7 @@ export default function ResidentEvilSection({ onBack }) {
           </div>
 
           <img
-            src="/sprites/attache_case.png"
+            src={asset("/sprites/attache_case.png")}
             alt="RE4 Attaché Case"
             className="absolute inset-0 w-full h-full object-contain select-none z-10 shadow-[0_0_50px_rgba(0,0,0,0.8)]"
             draggable={false}

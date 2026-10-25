@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { asset } from './utils';
 import BootScreen from './components/BootScreen';
 import MainMenu from './components/MainMenu';
 import PokemonSection from './components/sections/PokemonSection';
@@ -31,7 +32,7 @@ function App() {
       {/* Audio Global */}
       <audio 
         ref={audioRef} 
-        src="/audio/bgm_sky_full_of_stars.mp3" 
+        src={asset('/audio/bgm_sky_full_of_stars.mp3')} 
         loop 
         preload="auto" 
       />

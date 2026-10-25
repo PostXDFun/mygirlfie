@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import BackButton from '../ui/BackButton';
+import { asset } from '../../utils';
 
 const favoritePokemons = [
   { 
@@ -8,7 +9,7 @@ const favoritePokemons = [
     name: 'Vanilluxe',  
     level: 7,   
     type: 'Hielo', 
-    sprite: '/sprites/vanilluxe.png', 
+    sprite: asset('/sprites/vanilluxe.png'), 
     phrase: 'el goat' 
   },
   { 
@@ -16,7 +17,7 @@ const favoritePokemons = [
     name: 'Maushold',  
     level: 67,  
     type: 'Normal', 
-    sprite: '/sprites/maushold.png', 
+    sprite: asset('/sprites/maushold.png'), 
     phrase: 'us literal' 
   },
   { 
@@ -24,7 +25,7 @@ const favoritePokemons = [
     name: 'Snorlax',   
     level: 69,  
     type: 'Normal', 
-    sprite: '/sprites/snorlax.png', 
+    sprite: asset('/sprites/snorlax.png'), 
     phrase: 'goat fatass' 
   },
   { 
@@ -32,7 +33,7 @@ const favoritePokemons = [
     name: 'Latios y Latias', 
     level: 78,  
     type: 'Dragón/Psíquico', 
-    sprite: ['/sprites/latios.png', '/sprites/latias.png'], 
+    sprite: [asset('/sprites/latios.png'), asset('/sprites/latias.png')], 
     phrase: 'mira que peak somos juntos mi amor bello' 
   },
   { 
@@ -40,7 +41,7 @@ const favoritePokemons = [
     name: 'Solgaleo',  
     level: 100, 
     type: 'Psíquico/Acero', 
-    sprite: '/sprites/solgaleo.png', 
+    sprite: asset('/sprites/solgaleo.png'), 
     phrase: 'se como Solgaleo y aguanta las monstruaciones, leona' 
   },
 ];
