@@ -6,16 +6,12 @@ const menuItems = [
     id: 'pokemon', 
     label: 'Pokédex', 
     avatar: asset('/sprites/maki.jpg'), 
-    color: 'bg-gradient-to-b from-emerald-600 to-teal-800',
-    borderColor: 'border-emerald-300/30',
     character: 'Maki',
   },
   { 
     id: 'jojo', 
     label: 'Playlist', 
     avatar: asset('/sprites/yuta.jpg'), 
-    color: 'bg-gradient-to-b from-indigo-600 to-purple-900',
-    borderColor: 'border-indigo-300/30',
     character: 'Yuta',
   },
 ];
@@ -50,21 +46,16 @@ export default function MainMenu({ onNavigate }) {
           <motion.button
             key={item.id}
             variants={itemVariants}
-            whileTap={{ scale: 0.94 }}
-            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.93 }}
+            whileHover={{ scale: 1.04 }}
             onClick={() => onNavigate(item.id)}
-            className={`aspect-square rounded-3xl ${item.color} flex flex-col items-center justify-center p-3 sm:p-4 shadow-xl border ${item.borderColor} transition-all`}
+            className="aspect-square rounded-3xl overflow-hidden shadow-2xl relative cursor-pointer group focus:outline-none ring-0 active:ring-2 active:ring-white/40 transition-all"
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-white/60 shadow-md mb-2 sm:mb-3 bg-black/20">
-              <img 
-                src={item.avatar} 
-                alt={item.character} 
-                className="w-full h-full object-cover object-center scale-105" 
-              />
-            </div>
-            <span className="text-white font-bold text-base sm:text-lg tracking-wide drop-shadow-sm">
-              {item.label}
-            </span>
+            <img 
+              src={item.avatar} 
+              alt={item.character} 
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+            />
           </motion.button>
         ))}
       </div>
