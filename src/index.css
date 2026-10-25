@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-gameboy-bg: #8bac0f;
+  --color-gameboy-dark: #0f380f;
+  --color-gameboy-light: #9bbc0f;
+  --color-gameboy-text: #306230;
+  --color-jojo-sepia: #f4ecd8;
+  --color-jojo-dark: #3e2723;
+  --color-re-bg: #1a1a1a;
+  --color-re-green: #4caf50;
+  --color-re-red: #d32f2f;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevent body scrolling, allow specific areas to scroll */
+  background-color: #000; /* Fallback */
+  color: white;
+  font-family: var(--font-sans);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
