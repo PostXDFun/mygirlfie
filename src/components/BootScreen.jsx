@@ -15,7 +15,7 @@ export default function BootScreen({ onComplete }) {
         transition={{ delay: 0.3, duration: 0.8, type: 'spring' }}
         className="text-4xl font-bold mb-12 text-center tracking-wider"
       >
-        HOLA MI AMOR
+        Hola mi skibidi
       </motion.h1>
 
       <motion.button

@@ -39,7 +39,7 @@ export default function MainMenu({ onNavigate }) {
       exit="exit"
       className="w-full h-full flex flex-col p-6 bg-blue-900 justify-center items-center"
     >
-      <h2 className="text-2xl font-bold mb-8 text-white text-center">Elige una sorpresa</h2>
+      <h2 className="text-2xl font-bold mb-8 text-white text-center">Dale pero choose</h2>
       
       <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
         {menuItems.map((item) => (
