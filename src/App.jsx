@@ -5,8 +5,6 @@ import BootScreen from './components/BootScreen';
 import MainMenu from './components/MainMenu';
 import PokemonSection from './components/sections/PokemonSection';
 import JojoSection from './components/sections/JojoSection';
-import ResidentEvilSection from './components/sections/ResidentEvilSection';
-import FnafSection from './components/sections/FnafSection';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('boot');
@@ -42,8 +40,6 @@ function App() {
         {currentScreen === 'menu' && <MainMenu key="menu" onNavigate={navigateTo} />}
         {currentScreen === 'pokemon' && <PokemonSection key="pokemon" onBack={() => navigateTo('menu')} />}
         {currentScreen === 'jojo' && <JojoSection key="jojo" onBack={() => navigateTo('menu')} />}
-        {currentScreen === 're' && <ResidentEvilSection key="re" onBack={() => navigateTo('menu')} />}
-        {currentScreen === 'fnaf' && <FnafSection key="fnaf" onBack={() => navigateTo('menu')} />}
       </AnimatePresence>
     </div>
   );

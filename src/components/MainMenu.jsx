@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
-import { MessageSquare, Music, Image as ImageIcon, Mail } from 'lucide-react';
+import { Sparkles, Music } from 'lucide-react';
 
 const menuItems = [
-  { id: 'pokemon', label: 'Mensajes', icon: MessageSquare, color: 'bg-emerald-500' },
+  { id: 'pokemon', label: 'Pokédex', icon: Sparkles, color: 'bg-emerald-500' },
   { id: 'jojo', label: 'Playlist', icon: Music, color: 'bg-amber-500' },
-  { id: 're', label: 'Galería', icon: ImageIcon, color: 'bg-rose-500' },
-  { id: 'fnaf', label: 'Cartas', icon: Mail, color: 'bg-indigo-500' },
 ];
 
 const containerVariants = {
@@ -33,7 +31,7 @@ export default function MainMenu({ onNavigate }) {
     >
       <h2 className="text-2xl font-bold mb-8 text-white text-center">Elige una sorpresa</h2>
       
-      <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+      <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
         {menuItems.map((item) => (
           <motion.button
             key={item.id}
