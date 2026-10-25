@@ -35,8 +35,6 @@ if (typeof window !== 'undefined') {
   });
 }
 
-let lastPairIndex = -1;
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -51,15 +49,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 }
 };
 
-export default function MainMenu({ onNavigate }) {
-  const [currentPair] = useState(() => {
-    let nextIndex;
-    do {
-      nextIndex = Math.floor(Math.random() * MATCHING_PAIRS.length);
-    } while (nextIndex === lastPairIndex && MATCHING_PAIRS.length > 1);
-    lastPairIndex = nextIndex;
-    return MATCHING_PAIRS[nextIndex];
-  });
+export default function MainMenu({ onNavigate, pairIndex = 0 }) {
+  const currentPair = MATCHING_PAIRS[pairIndex % MATCHING_PAIRS.length];
 
   return (
     <motion.div

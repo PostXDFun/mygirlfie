@@ -8,9 +8,13 @@ import JojoSection from './components/sections/JojoSection';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('boot');
+  const [pairIndex, setPairIndex] = useState(0);
   const audioRef = useRef(null);
 
   const navigateTo = (screen) => {
+    if (screen === 'menu' && currentScreen !== 'boot') {
+      setPairIndex((prev) => prev + 1);
+    }
     setCurrentScreen(screen);
   };
 
@@ -37,7 +41,7 @@ function App() {
 
       <AnimatePresence mode="wait">
         {currentScreen === 'boot' && <BootScreen key="boot" onComplete={() => navigateTo('menu')} />}
-        {currentScreen === 'menu' && <MainMenu key="menu" onNavigate={navigateTo} />}
+        {currentScreen === 'menu' && <MainMenu key="menu" onNavigate={navigateTo} pairIndex={pairIndex} />}
         {currentScreen === 'pokemon' && <PokemonSection key="pokemon" onBack={() => navigateTo('menu')} />}
         {currentScreen === 'jojo' && <JojoSection key="jojo" onBack={() => navigateTo('menu')} />}
       </AnimatePresence>
