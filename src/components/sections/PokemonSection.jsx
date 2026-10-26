@@ -210,13 +210,12 @@ export default function PokemonSection({ onBack }) {
                     />
                   </div>
                 ) : (
-                  <motion.img
+                  <img
                     key={selected.id}
-                    whileTap={selected.isFreddy ? { scale: [1, 0.85, 1.08, 1] } : undefined}
                     onClick={selected.isFreddy ? playNoseHonk : undefined}
                     src={selected.sprite}
                     alt={selected.name}
-                    className={`w-24 h-24 sm:w-32 sm:h-32 object-contain relative z-10 ${selected.isFreddy ? 'cursor-pointer active:scale-95' : ''}`}
+                    className={`w-24 h-24 sm:w-32 sm:h-32 object-contain relative z-10 ${selected.isFreddy ? 'cursor-pointer' : ''}`}
                     style={{ imageRendering: 'pixelated' }}
                   />
                 )
