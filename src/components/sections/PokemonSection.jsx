@@ -10,7 +10,7 @@ const favoritePokemons = [
     level: 7,   
     type: 'Hielo', 
     sprite: asset('/sprites/vanilluxe.png'), 
-    phrase: 'el goat' 
+    phrase: 'El goat' 
   },
   { 
     id: '925', 
@@ -18,7 +18,7 @@ const favoritePokemons = [
     level: 67,  
     type: 'Normal', 
     sprite: asset('/sprites/maushold.png'), 
-    phrase: 'us literal' 
+    phrase: 'Us literal' 
   },
   { 
     id: '143', 
@@ -26,7 +26,7 @@ const favoritePokemons = [
     level: 69,  
     type: 'Normal', 
     sprite: asset('/sprites/snorlax.png'), 
-    phrase: 'goat fatass' 
+    phrase: 'Goat fatass' 
   },
   { 
     id: '380', 
@@ -34,7 +34,7 @@ const favoritePokemons = [
     level: 78,  
     type: 'Dragón/Psíquico', 
     sprite: [asset('/sprites/latios.png'), asset('/sprites/latias.png')], 
-    phrase: 'mira que peak somos juntos mi amor bello' 
+    phrase: 'Mira que peak somos juntos mi amor' 
   },
   { 
     id: '791', 
@@ -42,7 +42,15 @@ const favoritePokemons = [
     level: 100, 
     type: 'Psíquico/Acero', 
     sprite: asset('/sprites/solgaleo.png'), 
-    phrase: 'se como Solgaleo y aguanta las monstruaciones, leona' 
+    phrase: 'Se como Solgaleo y aguanta las monstruaciones, leona' 
+  },
+  { 
+    id: '403', 
+    name: 'Kirky',  
+    level: 2,   
+    type: 'Eléctrico', 
+    sprite: asset('/sprites/kirky.png'), 
+    phrase: 'Kirky da goat' 
   },
 ];
 
