@@ -237,7 +237,7 @@ export default function JojoSection({ onBack }) {
       <BackButton onClick={onBack} />
 
       {/* Header Western / SBR */}
-      <div className="pt-14 pb-2 text-center z-10">
+      <div className="pt-10 pb-2 text-center z-10">
         <h1 
           className="text-2xl sm:text-3xl font-extrabold tracking-wider text-[#3d2314] drop-shadow-sm uppercase"
           style={{ fontFamily: "'Rye', serif" }}

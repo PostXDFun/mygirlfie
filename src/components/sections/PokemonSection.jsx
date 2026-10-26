@@ -92,7 +92,7 @@ export default function PokemonSection({ onBack }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-full h-full bg-black flex flex-col items-center justify-center relative"
+      className="w-full h-full bg-black flex flex-col items-center justify-center pb-16 relative"
       style={{ fontFamily: "'Press Start 2P', monospace", imageRendering: 'pixelated' }}
     >
       <BackButton onClick={onBack} />

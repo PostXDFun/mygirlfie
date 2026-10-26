@@ -8,7 +8,7 @@ export default function BootScreen({ onComplete }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.8 }}
-      className="w-full h-full flex flex-col items-center justify-center bg-black text-white p-6 relative overflow-hidden"
+      className="w-full h-full flex flex-col items-center justify-center bg-black text-white p-6 pb-24 relative overflow-hidden"
     >
       <motion.h1
         initial={{ y: 25, opacity: 0 }}

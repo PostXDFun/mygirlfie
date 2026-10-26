@@ -61,7 +61,7 @@ export default function MainMenu({ onNavigate, pairIndex = 0 }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="w-full h-full flex flex-col p-6 justify-center items-center relative overflow-hidden bg-cover bg-center"
+      className="w-full h-full flex flex-col p-6 pb-24 justify-center items-center relative overflow-hidden bg-cover bg-center"
       style={{
         backgroundImage: `url(${asset('/sprites/floral_bg.jpg')})`,
       }}
