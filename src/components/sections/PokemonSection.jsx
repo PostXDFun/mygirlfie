@@ -82,7 +82,7 @@ export default function PokemonSection({ onBack }) {
           }}
         >
           <span className="text-white text-[12px] sm:text-[14px] tracking-wide drop-shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">
-            Kanto Pokédex
+            Our love Pokedex
           </span>
         </div>
 
