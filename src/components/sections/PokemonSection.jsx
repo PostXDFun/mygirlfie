@@ -52,7 +52,60 @@ const favoritePokemons = [
     sprite: asset('/sprites/kirky.png'), 
     phrase: 'Kirky da goat' 
   },
+  { 
+    id: '087', 
+    name: 'Freddy',  
+    level: 87,   
+    type: 'Normal', 
+    sprite: asset('/sprites/freddy.webp'), 
+    phrase: 'Toca la nariz',
+    isFreddy: true,
+  },
+  { 
+    id: '009', 
+    name: 'Handgun Ammo',  
+    level: 15,   
+    type: 'Ammo', 
+    sprite: asset('/sprites/handgun_ammo_poke.png'), 
+    phrase: 'Te Handgun Ammo mucho' 
+  },
 ];
+
+function playNoseHonk() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const now = ctx.currentTime;
+
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    // Classic clown/toy nose squeak frequency drop
+    osc1.type = 'triangle';
+    osc1.frequency.setValueAtTime(820, now);
+    osc1.frequency.exponentialRampToValueAtTime(540, now + 0.12);
+
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(1200, now);
+    osc2.frequency.exponentialRampToValueAtTime(700, now + 0.12);
+
+    gain.gain.setValueAtTime(0.5, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.14);
+
+    osc1.connect(gain);
+    osc2.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc1.start(now);
+    osc2.start(now);
+    osc1.stop(now + 0.15);
+    osc2.stop(now + 0.15);
+  } catch (e) {
+    console.warn('Audio error:', e);
+  }
+}
 
 export default function PokemonSection({ onBack }) {
   const [selected, setSelected] = useState(favoritePokemons[0]);
@@ -157,10 +210,13 @@ export default function PokemonSection({ onBack }) {
                     />
                   </div>
                 ) : (
-                  <img
+                  <motion.img
+                    key={selected.id}
+                    whileTap={selected.isFreddy ? { scale: [1, 0.85, 1.08, 1] } : undefined}
+                    onClick={selected.isFreddy ? playNoseHonk : undefined}
                     src={selected.sprite}
                     alt={selected.name}
-                    className="w-24 h-24 sm:w-32 sm:h-32 object-contain relative z-10"
+                    className={`w-24 h-24 sm:w-32 sm:h-32 object-contain relative z-10 ${selected.isFreddy ? 'cursor-pointer active:scale-95' : ''}`}
                     style={{ imageRendering: 'pixelated' }}
                   />
                 )
@@ -278,6 +334,74 @@ export default function PokemonSection({ onBack }) {
                   </button>
                 );
               })}
+            </div>
+
+            {/* Decorative GBA scrollbar slider */}
+            <div
+              className="flex flex-col items-center justify-between py-[4px] z-20 shrink-0 h-full"
+              style={{
+                width: '24px',
+                background: '#e0e0d8',
+                borderLeft: '2px solid #000',
+              }}
+            >
+              {/* Up arrow */}
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  background: '#c8c8c0',
+                  border: '2px solid #000',
+                }}
+              >
+                <div
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderLeft: '4px solid transparent',
+                    borderRight: '4px solid transparent',
+                    borderBottom: '6px solid #000',
+                  }}
+                />
+              </div>
+
+              {/* Blue scroll track */}
+              <div
+                className="flex-1 my-[4px] relative"
+                style={{
+                  width: '14px',
+                  background: '#4060e0',
+                  border: '2px solid #000',
+                  borderRadius: '2px',
+                }}
+              >
+                <div
+                  className="absolute top-0 left-0 w-full"
+                  style={{ height: '3px', background: 'rgba(255,255,255,0.4)' }}
+                />
+              </div>
+
+              {/* Down arrow */}
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  background: '#c8c8c0',
+                  border: '2px solid #000',
+                }}
+              >
+                <div
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderLeft: '4px solid transparent',
+                    borderRight: '4px solid transparent',
+                    borderTop: '6px solid #000',
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
