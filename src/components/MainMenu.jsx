@@ -27,6 +27,9 @@ const MATCHING_PAIRS = [
 
 // Preload all pair images so they appear instantaneously without lag
 if (typeof window !== 'undefined') {
+  const bgImg = new Image();
+  bgImg.src = asset('/sprites/floral_bg.jpg');
+
   MATCHING_PAIRS.forEach((pair) => {
     const img1 = new Image();
     img1.src = pair.left.img;
@@ -58,11 +61,22 @@ export default function MainMenu({ onNavigate, pairIndex = 0 }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="w-full h-full flex flex-col p-6 bg-blue-900 justify-center items-center"
+      className="w-full h-full flex flex-col p-6 justify-center items-center relative overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${asset('/sprites/floral_bg.jpg')})`,
+      }}
     >
-      <h2 className="text-2xl font-bold mb-8 text-white text-center">Dale pero choose</h2>
+      {/* Dark overlay to give depth and contrast */}
+      <div className="absolute inset-0 bg-black/45 pointer-events-none" />
+
+      <h2 
+        className="text-2xl sm:text-3xl font-normal mb-8 text-white text-center tracking-wide z-10 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
+        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+      >
+        Dale pero choose
+      </h2>
       
-      <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
+      <div className="grid grid-cols-2 gap-4 w-full max-w-xs z-10">
         <motion.button
           variants={itemVariants}
           whileTap={{ scale: 0.93 }}
