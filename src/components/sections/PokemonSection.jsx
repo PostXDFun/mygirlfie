@@ -62,7 +62,7 @@ export default function PokemonSection({ onBack }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-full h-full bg-[#303030] flex flex-col items-center justify-center relative"
+      className="w-full h-full bg-black flex flex-col items-center justify-center relative"
       style={{ fontFamily: "'Press Start 2P', monospace", imageRendering: 'pixelated' }}
     >
       <BackButton onClick={onBack} />
@@ -209,7 +209,13 @@ export default function PokemonSection({ onBack }) {
             />
 
             {/* List area */}
-            <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar z-20 text-black relative h-full">
+            <div 
+              className="flex-1 flex flex-col overflow-y-auto no-scrollbar z-20 text-black relative h-full"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
               {favoritePokemons.map((pkmn) => {
                 const isSelected = selected.id === pkmn.id;
                 return (
@@ -272,74 +278,6 @@ export default function PokemonSection({ onBack }) {
                   </button>
                 );
               })}
-            </div>
-
-            {/* Decorative GBA scrollbar */}
-            <div
-              className="flex flex-col items-center justify-between py-[4px] z-20 shrink-0 h-full"
-              style={{
-                width: '24px',
-                background: '#e0e0d8',
-                borderLeft: '2px solid #000',
-              }}
-            >
-              {/* Up arrow */}
-              <div
-                className="flex items-center justify-center"
-                style={{
-                  width: '16px',
-                  height: '16px',
-                  background: '#c8c8c0',
-                  border: '2px solid #000',
-                }}
-              >
-                <div
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderLeft: '4px solid transparent',
-                    borderRight: '4px solid transparent',
-                    borderBottom: '6px solid #000',
-                  }}
-                />
-              </div>
-
-              {/* Blue scroll track */}
-              <div
-                className="flex-1 my-[4px] relative"
-                style={{
-                  width: '14px',
-                  background: '#4060e0',
-                  border: '2px solid #000',
-                  borderRadius: '2px',
-                }}
-              >
-                <div
-                  className="absolute top-0 left-0 w-full"
-                  style={{ height: '3px', background: 'rgba(255,255,255,0.4)' }}
-                />
-              </div>
-
-              {/* Down arrow */}
-              <div
-                className="flex items-center justify-center"
-                style={{
-                  width: '16px',
-                  height: '16px',
-                  background: '#c8c8c0',
-                  border: '2px solid #000',
-                }}
-              >
-                <div
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderLeft: '4px solid transparent',
-                    borderRight: '4px solid transparent',
-                    borderTop: '6px solid #000',
-                  }}
-                />
-              </div>
             </div>
           </div>
         </div>
