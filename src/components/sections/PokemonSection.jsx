@@ -71,39 +71,16 @@ const favoritePokemons = [
   },
 ];
 
+const honkAudio = typeof Audio !== 'undefined' ? new Audio(asset('/audio/fnaf_nose_honk.mp3')) : null;
+
 function playNoseHonk() {
   try {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
-    const ctx = new AudioCtx();
-    const now = ctx.currentTime;
-
-    const osc1 = ctx.createOscillator();
-    const osc2 = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    // Classic clown/toy nose squeak frequency drop
-    osc1.type = 'triangle';
-    osc1.frequency.setValueAtTime(820, now);
-    osc1.frequency.exponentialRampToValueAtTime(540, now + 0.12);
-
-    osc2.type = 'sine';
-    osc2.frequency.setValueAtTime(1200, now);
-    osc2.frequency.exponentialRampToValueAtTime(700, now + 0.12);
-
-    gain.gain.setValueAtTime(0.5, now);
-    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.14);
-
-    osc1.connect(gain);
-    osc2.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc1.start(now);
-    osc2.start(now);
-    osc1.stop(now + 0.15);
-    osc2.stop(now + 0.15);
+    if (honkAudio) {
+      honkAudio.currentTime = 0;
+      honkAudio.play().catch(e => console.log('Honk play error:', e));
+    }
   } catch (e) {
-    console.warn('Audio error:', e);
+    console.warn(e);
   }
 }
 

@@ -285,11 +285,42 @@ export default function JojoSection({ onBack }) {
             </div>
           </div>
 
-          {/* Aguja del tocadiscos (Estilo vintage) */}
-          <div className="absolute top-2 right-4 w-12 h-16 pointer-events-none z-20">
-            <div className="w-3 h-3 bg-[#d4af37] rounded-full border border-black shadow"></div>
-            <div className="w-1 h-12 bg-gray-400 transform rotate-[25deg] origin-top-left shadow"></div>
-          </div>
+          {/* Aguja del tocadiscos realista (Audiophile Tonearm) */}
+          <motion.div 
+            className="absolute -top-3 -right-2 w-16 h-36 pointer-events-none z-30"
+            style={{ transformOrigin: '24px 24px' }}
+            animate={{
+              rotate: isPlaying ? 28 : -8,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            {/* Contrapeso superior (Counterweight) */}
+            <div className="absolute -top-1 left-[21px] w-2.5 h-6 bg-[#242424] rounded-t-sm border border-neutral-600 shadow-sm flex flex-col justify-center items-center">
+              <div className="w-full h-1 bg-neutral-500 my-0.5"></div>
+            </div>
+
+            {/* Base del pivote (Gimbal / Pivot Base) */}
+            <div className="absolute top-[18px] left-[14px] w-6 h-6 rounded-full bg-[#181818] border-2 border-neutral-500 shadow-lg flex items-center justify-center">
+              <div className="w-3 h-3 rounded-full bg-gradient-to-tr from-neutral-800 to-neutral-600 border border-neutral-400"></div>
+              {/* Palanca de apoyo (Cueing lever) */}
+              <div className="absolute -left-1.5 top-3.5 w-3 h-0.5 bg-neutral-900 rotate-[-15deg]"></div>
+            </div>
+
+            {/* Brazo metálico plateado (Tonearm wand) */}
+            <div className="absolute top-[38px] left-[24px] w-1.5 h-20 bg-gradient-to-r from-neutral-200 via-white to-neutral-400 rounded-full shadow-[0_2px_6px_rgba(0,0,0,0.6)]"></div>
+
+            {/* Cápsula / Portacápsulas con aguja (Cartridge & Headshell) */}
+            <div className="absolute top-[112px] left-[16px] w-5 h-7 bg-[#1c1c1c] rounded-[2px] border border-neutral-700 shadow-xl rotate-[12deg] flex flex-col justify-between p-0.5">
+              <div className="w-full h-1 bg-neutral-600 rounded-[1px]"></div>
+              {/* Gancho para el dedo (Finger lift) */}
+              <div className="absolute -right-2 top-1 w-2.5 h-1 bg-neutral-800 rounded-r-full rotate-[15deg] shadow"></div>
+              {/* Punta de la aguja con stylus blanco */}
+              <div className="w-2 h-1.5 bg-white mx-auto rounded-b-[1px] shadow-sm"></div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Info de la Canción Actual */}
